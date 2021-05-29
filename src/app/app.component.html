@@ -4,8 +4,18 @@
     required 
     pattern=".+@.+\..+" 
     name="email" 
-    [(ngModel)]="email" 
+    [(ngModel)]="email"
+    #emailControl="ngModel"
   />
+  <!--  we can use emailForm.controls.email.invalid as well  -->
+  <ng-container *ngIf="emailControl.invalid && emailControl.touched">
+    <div *ngIf="emailControl.errors.required">
+      You must enter an email
+    </div>
+    <div *ngIf="emailControl.errors.pattern">
+      Enter a valid email
+    </div>
+  </ng-container>
 </form>
 
 <hr />
