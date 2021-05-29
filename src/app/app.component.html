@@ -1,4 +1,4 @@
-<form #emailForm="ngForm">
+<form (ngSubmit)="onSubmit()" #emailForm="ngForm">
   <input
     type="email" 
     required 
@@ -16,6 +16,11 @@
       Enter a valid email
     </div>
   </ng-container>
+  <button 
+    [disabled]="emailForm.invalid" 
+  >
+    Submit
+  </button>
 </form>
 
 <hr />
